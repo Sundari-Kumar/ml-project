@@ -1,0 +1,6 @@
+flask
+python
+pandas
+numpy
+seaborn
+# run the command pip install -r requirements.txt in command prompt
