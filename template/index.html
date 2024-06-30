@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Placement Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="ssc_p">SSC Percentage:</label>
+        <input type="text" id="ssc_p" name="ssc_p" required>
+
+        <label for="hsc_p">HSC Percentage:</label>
+        <input type="text" id="hsc_p" name="hsc_p" required>
+
+        <label for="degree_p">Degree Percentage:</label>
+        <input type="text" id="degree_p" name="degree_p" required>
+
+        <label for="workex">Work Experience:</label>
+        <select id="workex" name="workex">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+
+        <label for="etest_p">Employability Test Percentage:</label>
+        <input type="text" id="etest_p" name="etest_p" required>
+
+        <input type="submit" value="Predict Placement">
+    </form>
+
+    {% if prediction %}
+    <div class="prediction">
+        <h2>Prediction: {{ prediction }}</h2>
+    </div>
+    {% endif %}
+</body>
+</html>
